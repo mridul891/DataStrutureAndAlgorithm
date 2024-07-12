@@ -9,18 +9,19 @@ void sumeequalk(int index, vector<int> &arr, vector<int> &subarr, int size, int 
     {
         if (sum == k)
         {
-            for (auto i : subarr) cout << i << "  ";
+            for (auto i : subarr)
+                cout << i << "  ";
             cout << endl;
         }
         return;
     }
-    
+
     subarr.push_back(arr[index]);
     sum = sum + arr[index];
-    sumeequalk(index + 1, arr, subarr, size, sum, k);
+    sumeequalk(index + 1, arr, subarr, size, sum , k);
     sum = sum - arr[index];
     subarr.pop_back();
-    sumeequalk(index + 1, arr, subarr, size, sum, k);
+    sumeequalk(index + 1, arr, subarr, size, sum , k);
 }
 int main()
 {
