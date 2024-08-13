@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/projects/Data Structure and Algorithm/recursion",
-      "program": "c:/projects/Data Structure and Algorithm/recursion/build/Debug/outDebug",
+      "cwd": "c:/projects/Data Structure and Algorithm/arrays",
+      "program": "c:/projects/Data Structure and Algorithm/arrays/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
