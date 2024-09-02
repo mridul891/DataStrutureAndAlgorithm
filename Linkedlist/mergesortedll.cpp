@@ -59,15 +59,16 @@ Node *merge(Node *head1, Node *head2)
         if (t1->data <= t2->data)
         {
             temp->next = t1;
-            temp = t1;
+
             t1 = t1->next;
         }
         else
         {
             temp->next = t2;
-            temp = t2;
+
             t2 = t2->next;
         }
+        temp = temp->next;
     }
     if (t1)
         temp->next = t1;
