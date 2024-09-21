@@ -6,6 +6,12 @@ class Solution
 public:
     int costy(int n, vector<int> &cost, vector<int> &dp)
     {
+        // Recursion
+
+        if (n <= 1)
+            return 0;
+        return min(cost[n - 1] + costy(n - 1, cost), cost[n - 2] + costy(n - 2, cost));
+
         // using dp top down approach
         if (n <= 1)
             return 0;
