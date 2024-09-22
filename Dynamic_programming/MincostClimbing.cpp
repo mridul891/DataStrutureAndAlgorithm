@@ -10,7 +10,7 @@ public:
 
         if (n <= 1)
             return 0;
-        return min(cost[n - 1] + costy(n - 1, cost), cost[n - 2] + costy(n - 2, cost));
+        return min(cost[n - 1] + costy(n - 1, cost, dp), cost[n - 2] + costy(n - 2, cost, dp));
 
         // using dp top down approach
         if (n <= 1)
