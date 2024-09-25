@@ -45,6 +45,22 @@ int findUsingBottomUp(int n, int wt[], int val[], int W, vector<vector<int>> &dp
     return dp[n][W];
 }
 
+// space optimization
+int findUsingSpaceOptimization(int n, int wt[], int val[], int W, vector<vector<int>> &dp)
+{
+    for (int i = 0; i <= n; i++)
+    {
+        for (int j = W; j > 0; j--)
+        {
+            if (wt[i - 1] <= j)
+            {
+                dp[j] = max(dp[j - wt[i - 1]], dp[j]);
+            }
+        }
+    }
+    return dp[W];
+}
+
 int knapsack(int wt[], int val[], int W, int n)
 {
 
@@ -55,4 +71,8 @@ int knapsack(int wt[], int val[], int W, int n)
     // bottom up approach
     vector<vector<int>> dp(n + 1, vector<int>(W + 1, 0));
     findUsingBottomUp(n, wt, val, W, dp);
+
+    // space optimization
+    vector<int> dp(W + 1, 0);
+    findUsingSpaceOptimization(n, wt, val, W, dp);
 }
