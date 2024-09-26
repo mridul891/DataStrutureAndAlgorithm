@@ -17,7 +17,7 @@ int topdownlcs(int n, int m, string &text1, string &text2, vector<vector<int>> &
     if (n < 0 || m < 0)
         return 0;
     if (dp[n][m] != -1)
-        return dp[n - 1][m - 1];
+        return dp[n][m];
     if (text1[n - 1] == text2[m - 1])
         return dp[n][m] = 1 + topdownlcs(n - 1, m - 1, text1, text2, dp);
     return dp[n][m] = max(topdownlcs(n - 1, m, text1, text2, dp), topdownlcs(n, m - 1, text1, text2, dp));
@@ -41,6 +41,25 @@ int bottomuplcs(int n, int m, string &text1, string &text2)
         }
     }
     return dp[n][m];
+}
+
+int spaceOptimizationLcs(string text1, string text2, int n, int m)
+{
+    int curr, prev = 0;
+    vector<int> dp;
+    for (int i = 1; i <= n; i++)
+    {
+        prev = curr;
+        prev = dp[i];
+        for (int j = 1; j <= m; j++)
+        {
+            if (text1[i - 1] == text2[j - 1])
+                dp[j] = 1 + prev;
+            else
+                dp[j] = max(dp[j], dp[j - 1]);
+        }
+    }
+    return dp[m];
 }
 
 int longestCommonSubsequence(string text1, string text2)
