@@ -21,5 +21,12 @@ bool CycleDetected(int node, int parent, vector<int> &visited, vector<bool> adj[
 bool isCycle(int v, vector<int> adj[])
 {
     vector<bool> visited(v, 0);
-    return CycleDetected(0, -1, visited, adj);
+    for (int i = 0; i < v; i++)
+    {
+        if (!visited[i] && CycleDetected(0, -1, visited, adj))
+        {
+            return 1;
+        }
+    }
+    return 0;
 }
