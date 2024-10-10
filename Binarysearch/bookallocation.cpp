@@ -25,9 +25,9 @@ int findpage(int arr[], int n, int m)
     if (m > n)
         return -1;
     int low = *max_element(arr, arr + n);
-    cout << "the low is " << low << endl;
+   
     int high = accumulate(arr, arr + n, 0);
-    cout << "the high is " << high << endl;
+    
     while (low <= high)
     {
         int mid = low + (high - low) / 2;
